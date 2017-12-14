@@ -69,6 +69,12 @@ def checklist(names, drawn_names):
     elif len(drawn_names) > len(names):
         raise DrawError("Somehow more names got drawn then were given, don't know how that's possible")
 
+    with open("drawn_names.txt", "w") as f:
+        i = 0
+        for name in names:
+            i += 1
+            f.write("[{}] {}\n".format(str(i), name))
+
 
 
 def draw_names(names):
