@@ -1,11 +1,13 @@
 import random
 
+
 class DrawError(Exception):
     pass
 
-class drawPair():
-    greetings = ['Oh shit', 'Congrats,', 'Tight, well done', 'Look at that, what a great draw', 'Ho Ho Ho']
 
+class drawPair():
+    greetings = ['Oh shit', 'Congrats,', 'Tight, well done', 'Look at that, what a great fucking draw', 'Ho Ho Ho']
+    farewells = ['Happy Hunting!', 'Good Luck!', 'Make the real Santa proud!', 'Have at it!', 'Don\'t fuck it up!']
     def __init__(self, secretSanta, recipient):
         self.is_price = False
         self.is_xavier = False
@@ -21,6 +23,10 @@ class drawPair():
         index = random.randint(0, (len(self.greetings)-1))
         return self.greetings[index]
 
+    def farwell(self):
+        index = random.randint(0, (len(self.farewells)-1))
+        return self.farewells[index]
+
     def writeCsv(self):
         filename = "{}_secret_santa_draw.txt".format(self.secretSanta)
         with open(filename, "w") as file:
@@ -34,8 +40,8 @@ class drawPair():
         if self.is_xavier:
             string_suffix += "\n(My records indicate you are xavier and that price is 47 times " \
                             "doper than you could ever be)"
-        return "{} {}! You are getting a gift for {}{}".format(self.greeting(), self.secretSanta,
-                                                               self.recipient, string_suffix)
+        return "{} {}! You are getting a gift for {}{}\n\n{}".format(self.greeting(), self.secretSanta,
+                                                               self.recipient, string_suffix, self.farwell())
 
 
 def draw(names):
@@ -60,6 +66,7 @@ def draw(names):
         d.writeCsv()
     return drawn_names
 
+
 def checklist(names, drawn_names):
     for name in names:
         if name not in drawn_names:
@@ -71,17 +78,16 @@ def checklist(names, drawn_names):
 
     with open("drawn_names.txt", "w") as f:
         i = 0
-        for name in names:
+        for name in drawn_names:
             i += 1
             f.write("[{}] {}\n".format(str(i), name))
-
 
 
 def draw_names(names):
     drawn_names = draw(names)
     checklist(names, drawn_names)
 
-
 if __name__ == "__main__":
-    names = ["Price", "Adam", "Tommy", "Aaron", "Xavier", "Danna", "Christene", "Drisana", "Courtney", "Alex", "Codi"]
+    names = ["Price", "Adam", "Tommy", "Aaron", "Xavier", "Danna", "Christene", "Drisana",
+             "Courtney", "Alex", "Codi", "Lena"]
     draw_names(names)
