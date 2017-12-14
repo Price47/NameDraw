@@ -2,7 +2,7 @@
 
 ## *About*
 Draw names randomly, esuring everyone gets picked and doesn't get
-themselves, then outputs every's picks into txt files so whoever runs
+themselves, then outputs everyone's picks into txt files so whoever runs
 this doesn't know everyone's secret santa
 
 ## *Running*
