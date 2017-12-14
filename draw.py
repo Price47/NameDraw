@@ -4,7 +4,7 @@ class DrawError(Exception):
     pass
 
 class drawPair():
-    greetings = ['Oh shit', 'Congrats,', 'Tight, well done', 'Look at that, what a great draw', ]
+    greetings = ['Oh shit', 'Congrats,', 'Tight, well done', 'Look at that, what a great draw', 'Ho Ho Ho']
 
     def __init__(self, secretSanta, recipient):
         self.is_price = False
