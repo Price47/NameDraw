@@ -1,4 +1,5 @@
 import random
+import sys
 
 
 class DrawError(Exception):
@@ -88,6 +89,8 @@ def draw_names(names):
     checklist(names, drawn_names)
 
 if __name__ == "__main__":
-    names = ["Price", "Adam", "Tommy", "Aaron", "Xavier", "Danna", "Christene", "Drisana",
-             "Courtney", "Alex", "Codi", "Lena"]
+    names = sys.argv[1:]
+    if names is None:
+        names = ["Price", "Adam", "Tommy", "Aaron", "Xavier", "Danna", "Christene", "Drisana",
+                 "Courtney", "Alex", "Codi", "Lena"]
     draw_names(names)
